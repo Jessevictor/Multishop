@@ -135,8 +135,13 @@ button:active {
         <img class="card-img-top" src="https://image.freepik.com/free-vector/cosmetic-advertisement-with-realistic-design_23-2147925114.jpg" alt="" />
         </a>
         <div class="card-body">
+<<<<<<< HEAD
             <p class="h6"><small class="text-muted">{{$item->name}}</small></br></p>
             <p class="item-price"><span>${{$item->price}}</span><strike>  ${{  $item->oprice}}</strike></p>
+=======
+            <p class="h6"><small class="text-muted"> Butterflies Hand composite</small></p>
+            <p class="h5 m-0"> $782.00</p>
+>>>>>>> b40d78dbd40537767b245b792cfc7d8a168b8551
         </div>
     </div>
 
@@ -150,12 +155,59 @@ button:active {
 <div class="row mb-5">
     <div class="col-md-12">
         <div class="card">
+            <div class="card-header">
+                <h6 style="float: right;">SEE ALL></h6>
+            </div>
             <div class="card-body">
                 <div class="row">
                     @foreach ($allbrand as $bran)
                     <div class="col-md-2">
                         <div class="card">
+<<<<<<< HEAD
                             <a href=""><img class="card-img-top" src="/images/{{$bran->image_path}}" alt="" />
+=======
+                            <img class="card-img-top" src="https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/25/983523/1.jpg?4194" alt="" />
+                            <div class="card-footer">
+                                <p class="card-text"><a href="#">Apple</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="card">
+                            <img class="card-img-top" src="https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/14/511682/1.jpg?0506" alt="" />
+                            <div class="card-footer">
+                                <p class="card-text"><a href="#">Samsung</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="card">
+                            <img class="card-img-top" src="https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/75/944232/1.jpg?9391" alt="" />
+                            <div class="card-footer">
+                                <p class="card-text"><a href="#">IBM</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="card">
+                            <img class="card-img-top" src="https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/29/758482/1.jpg?1756" alt="" />
+                            <div class="card-footer">
+                                <p class="card-text"><a href="#">HP</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="card">
+                            <img class="card-img-top" src="https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/45/801803/1.jpg?5355" alt="" />
+                            <div class="card-footer">
+                                <p class="card-text"><a href="#">Sony</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="card">
+                            <img class="card-img-top" src="https://ke.jumia.is/unsafe/fit-in/300x300/filters:fill(white)/product/63/778343/1.jpg?4886" alt="" />
+>>>>>>> b40d78dbd40537767b245b792cfc7d8a168b8551
                             <div class="card-footer">
                                 <p class="card-text"><a href="#">{{$bran->b_name}}</a></p>
                             </div></a>
