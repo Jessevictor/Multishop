@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
 use App\Models\Categories;
 use Illuminate\Http\Request;
 use App\Models\Product;
@@ -13,8 +14,10 @@ class CartController extends Controller
     {
         $product=Product::where('price','>',500)->inRandomOrder()->get()->take(8);
         //dd($products);
+        $brand=Brand::with(relations:'bran')->first();
+        $allbrand=Brand::get();
         $category=Categories::get();
-        return view('shop')->withTitle('SHOPILYV | SHOP')->with(['products' => $product,'category'=>$category]);
+        return view('shop')->withTitle('SHOPILYV | SHOP')->with(['products' => $product,'category'=>$category,'brands'=>$brand,'allbrand'=>$allbrand]);
     }
     public function create()
     {

@@ -116,15 +116,11 @@ button:active {
                    <h6 class="text-uppercase">Top Picks for You</h6>
                    <hr>
                    <div class="p-lists">
-                       <div class="d-flex justify-content-between mt-2"> <span>Agriculture</span> <span>23</span> </div>
-                       <div class="d-flex justify-content-between mt-2"> <span> <a href="{{route('phonestablets')}}">Phones & Tablets</a> </span> <span>46</span> </div>
-                       <div class="d-flex justify-content-between mt-2"> <span>Smart Tv</span> <span>13</span> </div>
-                       <div class="d-flex justify-content-between mt-2"> <span>Furnitures</span> <span>33</span> </div>
-                       <div class="d-flex justify-content-between mt-2"> <span>Groceries</span> <span>12</span> </div>
-                       <div class="d-flex justify-content-between mt-2"> <span>Beauty</span> <span>53</span> </div>
-                       <div class="d-flex justify-content-between mt-2"> <span>Small Appliancess</span> <span>203</span> </div>
-                       <div class="d-flex justify-content-between mt-2"> <span>Smartphones</span> <span>23</span> </div>
-                   </div>
+               @foreach ($category as $item)
+               <div class="d-flex justify-content-between mt-2"> <span> <a href="{{route('home.slug',$item->slug)}}">Phones & Tablets</a> </span> <span>46</span> </div>
+
+               @endforeach
+                </div>
                </div>
            </div>
            <div class="col-md-9">
@@ -132,9 +128,11 @@ button:active {
                <div class="row g-1">
 <div class="container">
 	<div class="row mb-5">
+        @foreach ($brands->bran as $item)
 <div class="col-md-3 mb-4">
+
     <div class="card">
-        <a href="">
+        <a href="{{route('product.show',$item->id)}}">
         <img class="card-img-top" src="https://image.freepik.com/free-vector/cosmetic-advertisement-with-realistic-design_23-2147925114.jpg" alt="" />
         </a>
         <div class="card-body">
@@ -142,10 +140,11 @@ button:active {
             <p class="h5 m-0">$782.00</p>
         </div>
     </div>
-</div>
-	</div>
- </div>
- </div>
+
+    </div>
+    @endforeach    </div>
+    </div>
+    </div>
        </div>
    </div>
 {{-- Third lane --}}

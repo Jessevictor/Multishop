@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
 use App\Models\Categories;
 use App\Models\Product;
 use App\Models\User;
@@ -19,7 +20,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        //$products = Product::all();
         return view('product.product_view',compact('products'));
     }
 
@@ -163,6 +164,5 @@ class ProductController extends Controller
         ->get(['products.*']);
         dd($users);
     }
-
 
 }

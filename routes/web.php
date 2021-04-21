@@ -38,5 +38,7 @@ Route::resource('orders', 'OrderController')->middleware('auth');
 Route::resource('Phones&tablets', 'PhonesTabletsController');
 Route::get('phonestables', 'PhonesTabletsController@phonetablet')->name('phonestablets');
 Route::get('phones','PhonesTabletsController@phones')->name('phones');
+Route::resource('product', 'ProductController');
+Route::get('cart/slug/{slug}','ProductController@slugg')->name('home.slug');
 
 
