@@ -261,8 +261,8 @@ label.radio input:checked+span::before {
                     <div class="demo">
                         <ul id="lightSlider">
                             <li data-thumb="https://dream2000.com/pub/media/catalog/product/cache/9b6394f59e15b10e6dd47471b29c7ca4/x/i/xiaomi_poco_m3_4gb_128gb_yellow-1.jpg"> <img class="p-image" src="/images/{{$product->image_path}}" /> </li>
-                            {{-- <li data-thumb="https://www.kibotek.com/wp-content/uploads/2020/11/kiboTEK_poco_m3_009-1.png"> <img  class="p-image" src="https://www.kibotek.com/wp-content/uploads/2020/11/kiboTEK_poco_m3_009-1.png" /> </li>
-                            <li data-thumb="https://www.kibotek.com/wp-content/uploads/2020/11/kiboTEK_poco_m3_008.png"> <img class="p-image" src="https://www.kibotek.com/wp-content/uploads/2020/11/kiboTEK_poco_m3_008.png" /> </li> --}}
+                            <li data-thumb="/images/{{$product->image_path}}"> <img  class="p-image" src="/images/{{$product->image_path}}" /> </li>
+                            <li data-thumb="/images/{{$product->image_path}}"> <img class="p-image" src="/images/{{$product->image_path}}" /> </li>
 
                         </ul>
                     </div>

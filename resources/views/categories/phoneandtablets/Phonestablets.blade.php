@@ -167,7 +167,7 @@ button:active {
                             <a class="nav-link" href="/">Home / </a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="">Phones&Tablets</a>
+                            <a class="nav-link" href="{{route('phonestablets')}}">Phones&Tablets</a>
                         </li>
                         {{-- <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -209,14 +209,10 @@ button:active {
                <div class="t-products p-2">
                    <h6 class="text-uppercase">Phones & Tablets</h6>
                    <div class="p-lists">
-                       <div class="d-flex justify-content-between mt-2"> <span> <a href="">Samsung tablets</a></span> <span>23</span> </div>
-                       <div class="d-flex justify-content-between mt-2"> <span>Xiaomi</span> <span>46</span> </div>
-                       <div class="d-flex justify-content-between mt-2"> <span>Lenovo</span> <span>13</span> </div>
-                       <div class="d-flex justify-content-between mt-2"> <span>Huwawei</span> <span>33</span> </div>
-                       <div class="d-flex justify-content-between mt-2"> <span>Htc</span> <span>12</span> </div>
-                       <div class="d-flex justify-content-between mt-2"> <span>infinix</span> <span>53</span> </div>
-                       <div class="d-flex justify-content-between mt-2"> <span>Motorola</span> <span>203</span> </div>
-                       <div class="d-flex justify-content-between mt-2"> <span>Ulephone</span> <span>23</span> </div>
+                       @foreach ($subcategories as $item)
+                       <div class="d-flex justify-content-between mt-2"> <span> <a href="{{route('product.related',$item->slug)}}">{{$item->subcat_name}}</a></span> <span>23</span> </div>
+                       @endforeach
+
                    </div>
                </div>
                <div class="processor p-2">
@@ -284,10 +280,12 @@ button:active {
 
                <div class="row g-2">
                    <br>
+                   @foreach ($category->product as $item)
                    <div class="col-md-3 mb-4">
+
                     <div class="card">
-                        <img class="card-img-top" src="https://cdn.sharafdg.com/cdn-cgi/image/width=600,height=600,fit=pad/assets/c/1/8/9/c189a5aec57a4c2f3462b3699497b489a4943104_S100541190_1.jpg" alt="" />
-                        <div class="card-body">
+                       <a href="{{route('product.related',$item->slug)}}"> <img class="card-img-top" src="https://cdn.sharafdg.com/cdn-cgi/image/width=600,height=600,fit=pad/assets/c/1/8/9/c189a5aec57a4c2f3462b3699497b489a4943104_S100541190_1.jpg" alt="" />
+                        </a><div class="card-body">
                             <p class="h6"><small class="text-muted">xiaomi redmi 9t</small></p>
                             <p class="h5 m-0">$782.00</p>
                         </div>
@@ -306,8 +304,9 @@ button:active {
                             </div>
                         </div>
                     </div>
-                </div>
 
+                </div>
+                @endforeach
                </div>
 
            </div>

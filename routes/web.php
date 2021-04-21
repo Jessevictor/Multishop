@@ -37,8 +37,32 @@ Route::resource('orders', 'OrderController')->middleware('auth');
 //get subcategory for product
 Route::resource('Phones&tablets', 'PhonesTabletsController');
 Route::get('phonestables', 'PhonesTabletsController@phonetablet')->name('phonestablets');
+//phonestablets/phones
 Route::get('phones','PhonesTabletsController@phones')->name('phones');
 Route::resource('product', 'ProductController');
 Route::get('cart/slug/{slug}','ProductController@slugg')->name('home.slug');
+Route::get('/data/related/{slug}', 'ProductController@productsubcategory')->name('product.related');
+Route::get('/data/related/{id}/{slug}', 'ProductController@productshow')->name('show.product');
+Route::resource('product', 'ProductController');
+Route::get('category','ProductController@getCategories')->name('create.product');
+Route::get('category/subcategory/{id}/','ProductController@getSubcategory');
+
+Route::get('apple','PhonesTabletsController@apple')->name('apple');
+Route::get('huwawei','PhonesTabletsController@infinix')->name('infinix');
+Route::get('infinix','PhonesTabletsController@huwawei')->name('huwawei');
+Route::get('lenovo','PhonesTabletsController@lenovo')->name('lenovo');
+Route::get('motorola','PhonesTabletsController@motorola')->name('motorola');
+Route::get('nokia','PhonesTabletsController@nokia')->name('nokia');
+Route::get('samsung','PhonesTabletsController@samsung')->name('samsung');
+Route::get('sony','PhonesTabletsController@sony')->name('sony');
+Route::get('ulefone','PhonesTabletsController@ulefone')->name('ulefone');
+Route::get('wiko','PhonesTabletsController@wiko')->name('wiko');
+Route::get('xiaomi','PhonesTabletsController@xiaomi')->name('xiaomi');
+//phonestablets/tablets
+Route::get('tablets','PhonesTabletsController@tablets')->name('tablets');
+Route::get('kidstablet','PhonesTabletsController@kidstablet')->name('kidstablet');
+Route::get('samsung_tablets','PhonesTabletsController@samsung_tablets')->name('samsung_tablets');
+Route::get('tcl_tab','PhonesTabletsController@tcl_tab')->name('tcl_tab');
+
 
 

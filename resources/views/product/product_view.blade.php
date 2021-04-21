@@ -8,11 +8,11 @@
             @foreach ($products->take(4) as $product)
             <div class="col-md-3">
                 <div class="card">
-                    <img class="card-img-top" src="https://images-na.ssl-images-amazon.com/images/I/41fPrUiXXjL.jpg" alt="" />
+                    <a href="{{route('product.related',$product->slug)}}"><img class="card-img-top" src="https://images-na.ssl-images-amazon.com/images/I/41fPrUiXXjL.jpg" alt="" />
                     <div class="card-body">
                         <p class="h6"><small class="text-muted">{{$product->name}}</small></br>{{$product->description}}</p>
                         <p class="item-price"><span>$269.00</span><strike> $289.00</strike></p>
-                    </div>
+                    </div></a>
                     <div class="card-footer p-0">
                         <form action="{{route('add.cart',$product->id)}}" method="GET">
                             {{ csrf_field() }}

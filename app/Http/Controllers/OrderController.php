@@ -42,9 +42,9 @@ class OrderController extends Controller
             'shipping_state' => 'required',
             'shipping_city' => 'required',
             'shipping_address' => 'required',
-            'shipping_phone' => 'required',
+            'shiping_phone' => 'required',
             'shipping_zipcode' => 'required',
-            // 'payment_method' => 'required',
+            //'payment_method' => 'required',
         ]);
 
         $order = new Order();
@@ -56,7 +56,7 @@ class OrderController extends Controller
         $order->shippping_state = $request->input('shipping_state');
         $order->shippping_city = $request->input('shipping_city');
         $order->shippping_address = $request->input('shipping_address');
-        $order->shippping_phone = $request->input('shipping_phone');
+        $order->shippping_phone = $request->input('shiping_phone');
         $order->shippping_zipcode = $request->input('shipping_zipcode');
         // $order->shippping_email=$request->input('shipping_email');
         // $order->notes=$request->input('notes');
@@ -66,7 +66,7 @@ class OrderController extends Controller
             $order->billing_state = $request->input('shipping_state');
             $order->billing_city = $request->input('shipping_city');
             $order->billing_address = $request->input('shipping_address');
-            $order->billing_phone = $request->input('shipping_phone');
+            $order->billing_phone = $request->input('shiping_phone');
             $order->billing_zipcode = $request->input('shipping_zipcode');
         }else {
             $order->billing_fullname = $request->input('billing_fullname');
@@ -82,6 +82,7 @@ class OrderController extends Controller
         $order->item_count = \Cart::getContent()->count();
 
         $order->user_id = auth()->id();
+        $order->shop_id = auth()->id();
 
         // if (request('payment_method') == 'paypal') {
         //     $order->payment_method = 'paypal';
@@ -90,10 +91,13 @@ class OrderController extends Controller
         $order->save();
 
         $cartItems = \Cart::getContent();
-
-        foreach($cartItems as $item) {
-            $order->items()->attach($item->id, ['price'=> $item->price, 'quantityy'=> $item->quantity]);
+        if ($cartItems) {
+            foreach($cartItems as $item) {
+                $order->items()->attach($item->id, ['price'=> $item->price, 'quantityy'=> $item->quantity]);
+            }
+            \Cart::clear();
         }
+
 
         //$order->generateSubOrders();
 
@@ -103,7 +107,7 @@ class OrderController extends Controller
 
         // }
 
-        \Cart::clear();
+
 
         return redirect()->route('home')->withMessage('Order has been placed');
 

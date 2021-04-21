@@ -117,8 +117,7 @@ button:active {
                    <hr>
                    <div class="p-lists">
                @foreach ($category as $item)
-               <div class="d-flex justify-content-between mt-2"> <span> <a href="{{route('home.slug',$item->slug)}}">Phones & Tablets</a> </span> <span>46</span> </div>
-
+               <div class="d-flex justify-content-between mt-2"> <span> <a href="{{route('home.slug',$item->slug)}}">{{$item->cat_name}}</a> </span> <span>46</span> </div>
                @endforeach
                 </div>
                </div>
@@ -128,7 +127,7 @@ button:active {
                <div class="row g-1">
 <div class="container">
 	<div class="row mb-5">
-        @foreach ($brands->bran as $item)
+        @foreach ($brand->bran as $item)
 <div class="col-md-3 mb-4">
 
     <div class="card">
@@ -136,8 +135,8 @@ button:active {
         <img class="card-img-top" src="https://image.freepik.com/free-vector/cosmetic-advertisement-with-realistic-design_23-2147925114.jpg" alt="" />
         </a>
         <div class="card-body">
-            <p class="h6"><small class="text-muted">Apple</small></br>Butterflies Hand composite</p>
-            <p class="h5 m-0">$782.00</p>
+            <p class="h6"><small class="text-muted">{{$item->name}}</small></br></p>
+            <p class="item-price"><span>${{$item->price}}</span><strike>  ${{  $item->oprice}}</strike></p>
         </div>
     </div>
 
@@ -153,54 +152,16 @@ button:active {
         <div class="card">
             <div class="card-body">
                 <div class="row">
+                    @foreach ($allbrand as $bran)
                     <div class="col-md-2">
                         <div class="card">
-                            <img class="card-img-top" src="https://via.placeholder.com/200x200" alt="" />
+                            <a href=""><img class="card-img-top" src="/images/{{$bran->image_path}}" alt="" />
                             <div class="card-footer">
-                                <p class="card-text"><a href="#">Apple</a></p>
-                            </div>
+                                <p class="card-text"><a href="#">{{$bran->b_name}}</a></p>
+                            </div></a>
                         </div>
                     </div>
-                    <div class="col-md-2">
-                        <div class="card">
-                            <img class="card-img-top" src="https://via.placeholder.com/200x200" alt="" />
-                            <div class="card-footer">
-                                <p class="card-text"><a href="#">Samsung</a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="card">
-                            <img class="card-img-top" src="https://via.placeholder.com/200x200" alt="" />
-                            <div class="card-footer">
-                                <p class="card-text"><a href="#">IBM</a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="card">
-                            <img class="card-img-top" src="https://via.placeholder.com/200x200" alt="" />
-                            <div class="card-footer">
-                                <p class="card-text"><a href="#">HP</a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="card">
-                            <img class="card-img-top" src="https://via.placeholder.com/200x200" alt="" />
-                            <div class="card-footer">
-                                <p class="card-text"><a href="#">Sony</a></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-2">
-                        <div class="card">
-                            <img class="card-img-top" src="https://via.placeholder.com/200x200" alt="" />
-                            <div class="card-footer">
-                                <p class="card-text"><a href="#">Asus</a></p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

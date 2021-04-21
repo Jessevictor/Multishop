@@ -151,7 +151,7 @@ body {
 	<div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
 		<div class="navbar-nav">
 			<a href="/" class="nav-item nav-link active">Home</a>
-			<a href="" class="nav-item nav-link">Add prodcut</a>
+			<a href="{{route('create.product')}}" class="nav-item nav-link">Add prodcut</a>
 			<div class="nav-item dropdown">
 				<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Services</a>
 				<div class="dropdown-menu">

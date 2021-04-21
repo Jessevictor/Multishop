@@ -143,13 +143,14 @@ class ProductController extends Controller
         //
     }
     public function slugg($slug){
+        $subcategories=Sub_category::get();
         $category=Categories::with(relations:'product')->where('slug',$slug)->first();
-        return view('categories.computing.index',compact('category'));
+        return view('categories.phoneandtablets.Phonestablets',compact(['category','subcategories']));
     }
     public function productsubcategory($slug){
         $sproduct=sub_category::with(relations:['product'])->where('slug',$slug)->first();
         //dd($sproduct->toArray());
-        return view('product.product_bread',compact('sproduct'));
+        return view('categories.phoneandtablets.Tablets.Tablets.samsung_tablets',compact('sproduct'));
 
     }
 

@@ -14,10 +14,11 @@ class CartController extends Controller
     {
         $product=Product::where('price','>',500)->inRandomOrder()->get()->take(8);
         //dd($products);
+
         $brand=Brand::with(relations:'bran')->first();
         $allbrand=Brand::get();
         $category=Categories::get();
-        return view('shop')->withTitle('SHOPILYV | SHOP')->with(['products' => $product,'category'=>$category,'brands'=>$brand,'allbrand'=>$allbrand]);
+        return view('shop')->withTitle('SHOPILYV | SHOP')->with(['products' => $product,'category'=>$category,'brand'=>$brand,'allbrand'=>$allbrand]);
     }
     public function create()
     {
